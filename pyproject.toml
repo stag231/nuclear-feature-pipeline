@@ -1,0 +1,20 @@
+[project]
+name = "bladder-pathomics"
+version = "0.1.0"
+description = "Reproducible WSI quality control and pathomics patch extraction"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  "matplotlib==3.10.9",
+  "numpy==2.2.6",
+  "openslide-bin==4.0.1.2",
+  "openslide-python==1.4.6",
+  "pandas==2.3.3",
+  "pillow==12.3.0",
+  "scikit-image==0.25.2",
+  "scipy==1.15.3",
+  "tifffile==2025.5.10",
+]
+
+[tool.uv]
+package = false
