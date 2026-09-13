@@ -1,0 +1,19 @@
+[project]
+name = "pathomics-histoqc"
+version = "0.1.0"
+description = "Isolated HistoQC environment for Pathomics QC proxies"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  # v2.1 is a legacy script-only release.  Pin the current official packaged
+  # implementation so that uv can build a reproducible Python environment.
+  "histoqc @ git+https://github.com/choosehappy/HistoQC.git@30d2f65acbebb3d6291bcb15d3bceeca61fdfd7d",
+  "openslide-bin==4.0.1.2",
+  "openslide-python==1.4.6",
+]
+
+[tool.uv]
+package = false
+# HistoQC pins an older binding which cannot locate the bundled OpenSlide
+# dynamic library on Apple Silicon.  The public OpenSlide API used by HistoQC
+# is compatible with 1.4.6, which works with openslide-bin on macOS.
+override-dependencies = ["openslide-python==1.4.6"]
